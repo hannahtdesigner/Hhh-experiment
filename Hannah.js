@@ -47,9 +47,6 @@ function setup() {
 }
 
 
-   //
-}
-
 
 function clamp(val , min,max){
 
