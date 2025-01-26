@@ -11,7 +11,13 @@ let aspect = 0;
 
 
 function preload(){
-   helloImage = loadImage('./images/hello.png');
+   helloImage = loadImage('./images/hello.png', () => {
+    console.log("hello.png loaded successfully");
+  }, () => {
+    console.error("Failed to load hello.png");
+  });
+
+   
    for(let i = 0 ;i < letterTypes;i++){
     images[i] = loadImage('./images/Website_h_0' + (i + 1) + '.png');
   }
@@ -21,6 +27,7 @@ function setup() {
   
     
   createCanvas(window.windowWidth , window.windowHeight);
+     console.log("Canvas created successfully!"); // Add this line
   angleMode(DEGREES);
   
   
@@ -37,7 +44,10 @@ function setup() {
   for(let i = 0 ;i < totLetters;i++){
     letters[i] = new Letter(images[Math.round(random(0,images.length - 1))]);
   }
-  
+}
+
+
+   //
 }
 
 
